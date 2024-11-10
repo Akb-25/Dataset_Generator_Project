@@ -56,7 +56,7 @@ import os
 import random
 from datetime import datetime
 
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+client = boto3.client("bedrock-runtime", region_name="ap-south-1")
 model_id = "amazon.titan-image-generator-v1"
 
 output_dir = "images"

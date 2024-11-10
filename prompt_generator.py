@@ -1,7 +1,7 @@
 import boto3
 from botocore.exceptions import ClientError
 
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+client = boto3.client("bedrock-runtime", region_name="ap-south-1")
 model_id = "amazon.titan-text-express-v1"
 
 def generate_prompts_with_titan(dataset_name, description, additional_prompt):
