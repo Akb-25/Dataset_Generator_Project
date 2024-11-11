@@ -4,9 +4,9 @@ from botocore.exceptions import ClientError
 client = boto3.client("bedrock-runtime", region_name="ap-south-1")
 model_id = "amazon.titan-text-express-v1"
 
-def generate_prompts_with_titan(dataset_name, description, additional_prompt):
+def generate_prompts_with_titan(dataset_name, description, additional_prompt, number):
     titan_prompt = (
-        f"Generate 5 unique, detailed, descriptive prompts for creating images in the following dataset.\n\n"
+        f"Generate {number} unique, detailed, descriptive prompts for creating images in the following dataset.\n\n"
         f"- **Dataset Name**: {dataset_name}\n"
         f"- **Dataset Description**: {description}\n"
         f"- **Additional Instructions**: {additional_prompt}\n\n"
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     description = "Images of animals interacting with city environments, capturing the contrast between urban structures and wildlife."
     additional_prompt = "Focus on lighting that highlights the urban-wildlife contrast, capturing both daytime and nighttime scenes."
 
-    prompts = generate_prompts_with_titan(dataset_name, description, additional_prompt)
+    prompts = generate_prompts_with_titan(dataset_name, description, additional_prompt, number)
 
     print("Generated Prompts :", prompts)
     print("Total Prompts Generated:", len(prompts))  
