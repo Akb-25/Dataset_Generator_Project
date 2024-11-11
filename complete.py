@@ -38,7 +38,7 @@ description = st.text_area("Dataset Description")
 prompt = st.text_input("Additional Prompt")
 height = st.number_input("Image Height", min_value=512, value=512)
 width = st.number_input("Image Width", min_value=512, value=512)
-number = st.number_input("Number of images you want to generate", min_value=1, value=1, max_value=5)
+number = st.number_input("Number of images you want to generate", min_value=1, value=1, max_value=100)
 
 if st.button("Generate Dataset"):
     if name and description:
@@ -50,7 +50,7 @@ if st.button("Generate Dataset"):
 
             image_paths = []  
             
-            image_paths = generate_image(height, width, name, description, prompts)  # This should save the image file
+            image_paths = generate_image(height, width, name, description, prompts)
 
             save_dataset_in_memory(name, description, prompts, image_paths)
             st.success("Dataset generated and saved in memory!")
